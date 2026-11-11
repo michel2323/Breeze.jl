@@ -74,7 +74,7 @@ using Oceananigans.Units
 using Oceananigans.Grids: znodes
 
 using CairoMakie
-using CUDA
+using oneAPI
 using Printf
 
 # ## Domain and grid
@@ -88,7 +88,7 @@ Oceananigans.defaults.FloatType = Float32
 Nx, Ny, Nz = 168, 168, 40
 Lx, Ly, Lz = 168kilometers, 168kilometers, 20kilometers
 
-grid = RectilinearGrid(GPU(),
+grid = RectilinearGrid(GPU(oneAPIBackend()),
                        size = (Nx, Ny, Nz),
                        x = (0, Lx),
                        y = (0, Ly),
